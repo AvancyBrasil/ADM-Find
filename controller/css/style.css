@@ -1,0 +1,242 @@
+    .itens-tabela {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.titulo-tabela {
+    margin: 0; /* Remove margens para um melhor alinhamento */
+}
+
+.selecao-tabelas {
+    display: flex;
+    align-items: center;
+}
+
+.table-responsive {
+    margin-top: 20px; /* Espaço acima da tabela */
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Espaço acima da paginação */
+}
+
+.btn {
+    padding: 5px 10px; /* Estilo para os botões */
+    margin: 0 5px; /* Espaço entre os botões */
+    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+}
+
+#pagination {
+    margin-top: 20px; /* Espaço acima da seção de paginação */
+}
+
+/* Estilo para os overlays */
+.overlay {
+    display: none; /* Inicialmente oculta todos os overlays */
+
+}
+
+.custom-button {
+    width: 120px;    /* Largura do botão */
+    height: 38px;    /* Altura do botão */
+    font-size: 16px; /* Tamanho da fonte */
+    border-radius: 5px; /* Bordas arredondadas */
+    display: flex;   /* Para alinhamento do conteúdo */
+    align-items: center; /* Centraliza o ícone e texto verticalmente */
+    justify-content: center; /* Centraliza o ícone e texto horizontalmente */
+    transition: background-color 0.3s; /* Transição suave para mudança de cor */
+}
+
+.btn-approve {
+    background-color: #28a745; /* Cor de fundo verde */
+    color: white; /* Cor do texto */
+    margin-left: 15px;
+}
+
+.btn-approve:hover {
+    background-color: #218838; /* Cor de fundo verde escuro ao passar o mouse */
+}
+
+.btn-reject {
+    background-color: #dc3545; /* Cor de fundo vermelho */
+    color: white; /* Cor do texto */
+}
+
+.btn-reject:hover {
+    background-color: #c82333; /* Cor de fundo vermelho escuro ao passar o mouse */
+}
+
+.custom-search {
+    width: 200px;  /* Largura do campo de pesquisa */
+    height: 35px;  /* Altura do campo de pesquisa */
+    padding: 5px;  /* Espaçamento interno */
+    border-radius: 5px; /* Bordas arredondadas */
+    border: 1px solid #ccc; /* Cor da borda */
+}
+
+.custom-search:focus {
+    border-color: #4e73df; /* Cor da borda ao focar */
+    outline: none; /* Remove a borda padrão de foco */
+}
+
+/* Estilo para a classe de alerta */
+.alert-box {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    z-index: 1000;
+}
+
+/* Estilo para linhas banidas */
+.banned {
+    background-color: #ffcccb; /* Cor de fundo vermelho claro para usuários banidos */
+    color: #b71c1c; /* Cor de texto vermelho escuro */
+}
+
+/* Estilo para linhas selecionadas */
+.selected {
+    background-color: #d1ecf1; /* Azul claro */
+}
+
+td{
+    cursor: pointer;
+}
+
+.localizacao{
+    width: auto;
+}
+
+.card-localizacao {
+    background-color: white;
+    width: auto;
+    height: 800px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.11); /* sombra ao redor */
+}
+
+#map {
+    height: 700px;
+    width: 100%;
+}
+
+#searchBox {
+    width: 300px; /* Largura da caixa de pesquisa */
+    height: 40px;
+    padding: 10px; /* Espaçamento interno */
+    margin: 10px; /* Margem */
+    border: 1px solid #ccc; /* Borda */
+    border-radius: 4px; /* Cantos arredondados */
+}
+
+/* Estilo apenas para cards com o data-id igual a 'card1' */
+.card[data-id="card1"] {
+    transition: transform 0.2s;
+    border: 1px solid #dc3545; /* Altera a borda apenas para este card */
+    cursor: pointer; /* Muda o ponteiro do mouse */
+}
+
+.card[data-id="card1"]:hover {
+    transform: scale(1.02); /* Aumenta o card ao passar o mouse */
+    background-color: rgba(220, 53, 69, 0.1); /* Cor de fundo ao passar o mouse */
+}
+
+/* Estilo para outros cards com data-id específicos */
+.card[data-id="card2"] {
+    transition: transform 0.2s;
+    border: 1px solid #dc3545; /* Altera a borda apenas para este card */
+    cursor: pointer; /* Muda o ponteiro do mouse */
+}
+
+.card[data-id="card2"]:hover {
+    transform: scale(1.02);
+    background-color: rgba(220, 53, 69, 0.1);
+}
+
+.card[data-id="card3"] {
+    transition: transform 0.2s;
+    border: 1px solid #28a745; /* Altera a borda apenas para este card */
+    cursor: pointer; /* Muda o ponteiro do mouse */
+}
+
+.card[data-id="card3"]:hover {
+    transform: scale(1.02);
+    background-color: rgba(40, 167, 69, 0.1);
+}
+
+/* E assim por diante para outros cards... */
+
+/* Flexbox para a classe row */
+.row {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens quebrem para a linha seguinte se não houver espaço */
+}
+
+.col-xl-3, .col-md-6 {
+    flex: 1 0 21%; /* Ajuste conforme necessário para a responsividade */
+    margin: 10px; /* Espaçamento entre colunas */
+    box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
+}
+
+#chatHistory {
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f8f9fa;
+}
+
+.user-message {
+    text-align: right;
+    margin: 5px 0;
+}
+
+.admin-message {
+    text-align: left;
+    margin: 5px 0;
+}
+
+.message {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 10px;
+}
+
+.user-message .message {
+    background-color: #007bff;
+    color: white;
+}
+
+.admin-message .message {
+    background-color: #e2e3e5;
+    color: black;
+}
+
+.assinaturas{
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-assinaturas {
+    background-color: white;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.11); /* sombra ao redor */
+}
+
+/* Estilos para os Status */
+.pago {
+    color: #388e3c; /* Verde escuro */
+}
+
+.nao-pago {
+    color: #d32f2f; /* Vermelho escuro */
+}
+
+.navbar{
+    background-color: #218838;
+}
