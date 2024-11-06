@@ -334,7 +334,7 @@ if ($response !== false) {
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Quantidade de usuários</div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800">3500</div>
+                                                <div id="totalUsuarios" class="h5 mb-0 font-weight-bold text-gray-800">3500</div>
                                             </div>
                                             <div class="col-auto">
                                                 <i class="fas fa-user fa-2x text-gray-300"></i>
@@ -352,7 +352,7 @@ if ($response !== false) {
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                     novos usuários</div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800">500</div>
+                                                <div id="totalUsuarios1" class="h5 mb-0 font-weight-bold text-gray-800">500</div>
                                             </div>
                                             <div class="col-auto">
                                                 <i class="fas fa-users fa-2x text-gray-300"></i>
@@ -475,6 +475,7 @@ if ($response !== false) {
                                                 <th>Data de Nascimento</th>
                                                 <th>Telefone</th>
                                                 <th>Email</th>
+                                                <th>Status</th>
                                             </tr>
                                         </thead>
                                         <tbody id="table1Body">
@@ -499,6 +500,7 @@ if ($response !== false) {
                                                 <th>Número do Estabelecimento</th>
                                                 <th>Número de Contato</th>
                                                 <th>Email</th>
+                                                <th>Status</th>
                                             </tr>
                                         </thead>
                                         <tbody id="table2Body">
@@ -853,72 +855,20 @@ if ($response !== false) {
                                                 <th>ID</th>
                                                 <th>Nome</th>
                                                 <th>Sobrenome</th>
-                                                <th>CPF</th>
-                                                <th>Data de Nascimento</th>
                                                 <th>Nome da Empresa</th>
                                                 <th>CNPJ</th>
                                                 <th>CEP</th>
                                                 <th>Logradouro</th>
                                                 <th>Cidade</th>
-                                                <th>Bairro</th>
+                                                <th>Estado</th>
                                                 <th>Número do Estabelecimento</th>
-                                                <th>Complemento</th>
                                                 <th>Número de Contato</th>
                                                 <th>Email</th>
+                                                <th>Senha</th>
+                                                
                                             </tr>
                                         </thead>
-                                        <tbody id="table3Body">
-                                            <tr class="selectable-table2">
-                                                <td>1</td>
-                                                <td>Tiger</td>
-                                                <td>Nixon</td>
-                                                <td>123.456.789-00</td>
-                                                <td>01/01/1990</td>
-                                                <td>Empresa A</td>
-                                                <td>12.345.678/0001-90</td>
-                                                <td>12345-678</td>
-                                                <td>Rua Exemplo, 123</td>
-                                                <td>Cidade Exemplo</td>
-                                                <td>Bairro Exemplo</td>
-                                                <td>456</td>
-                                                <td>Sem complemento</td>
-                                                <td>(11) 99999-9999</td>
-                                                <td>tiger@example.com</td>
-                                            </tr>
-                                            <tr class="selectable-table2">
-                                                <td>2</td>
-                                                <td>Garrett</td>
-                                                <td>Winters</td>
-                                                <td>987.654.321-00</td>
-                                                <td>15/05/1985</td>
-                                                <td>Empresa B</td>
-                                                <td>98.765.432/0001-00</td>
-                                                <td>98765-432</td>
-                                                <td>Avenida Teste, 456</td>
-                                                <td>Cidade Teste</td>
-                                                <td>Bairro Teste</td>
-                                                <td>789</td>
-                                                <td>Sem complemento</td>
-                                                <td>(21) 88888-8888</td>
-                                                <td>garrett@example.com</td>
-                                            </tr>
-                                            <tr class="selectable-table2">
-                                                <td>3</td>
-                                                <td>Ashton</td>
-                                                <td>Cox</td>
-                                                <td>111.222.333-44</td>
-                                                <td>20/09/1978</td>
-                                                <td>Empresa C</td>
-                                                <td>11.111.111/0001-11</td>
-                                                <td>54321-987</td>
-                                                <td>Praça Exemplo, 789</td>
-                                                <td>Cidade Exemplo 2</td>
-                                                <td>Bairro Exemplo 2</td>
-                                                <td>321</td>
-                                                <td>Sem complemento</td>
-                                                <td>(31) 77777-7777</td>
-                                                <td>ashton@example.com</td>
-                                            </tr>
+                                        <tbody class="tabela3" id="table3Body">
                                         </tbody>
                                     </table>
 
@@ -964,7 +914,6 @@ if ($response !== false) {
                 <script src="../controller/js/tabelas.js"></script>
                 <script src="../controller/js/pesquisa.js"></script>
                 <script src="../controller/js/paginacao.js"></script>
-                <script src="../controller/js/botoes-tabela.js"></script>
                 <script src="../controller/js/overlay.js"></script>
                 <script src="../controller/js/modal.js"></script>
                 <script src="../controller/js/tabela-aprovacao.js"></script>
