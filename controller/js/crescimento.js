@@ -43,7 +43,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
       pointHitRadius: 10,
       pointBorderWidth: 2,
-      data: [100, 200, 500, 700, 1200, 1400, 1600, 1800, 2000, 2500, 3000, 3500], // Dados ajustados para o crescimento de contas
+      data: [100, 200, 500, 700, 1200, 1400, 1600, 1800, 2000, 2500, 3000, 3500],
     }],
   },
   options: {
@@ -109,3 +109,35 @@ var myLineChart = new Chart(ctx, {
     }
   }
 });
+
+    fetch('http://localhost:4000/usuariosTotal')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok ' + response.statusText);
+    }
+    return response.text();
+  })
+  .then(data => {
+   
+    const totalUsuariosDiv = document.getElementById('totalUsuarios');
+    totalUsuariosDiv.textContent = data;
+  })
+  .catch(error => {
+    console.error('Erro ao buscar o total de documentos:', error);
+  });
+
+  fetch('http://localhost:4000/usuariosTotal')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok ' + response.statusText);
+    }
+    return response.text();
+  })
+  .then(data => {
+   
+    const totalUsuariosDiv = document.getElementById('totalUsuarios1');
+    totalUsuariosDiv.textContent = data;
+  })
+  .catch(error => {
+    console.error('Erro ao buscar o total de documentos:', error);
+  });

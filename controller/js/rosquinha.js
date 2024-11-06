@@ -2,14 +2,26 @@
 Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#858796';
 
-// Pie Chart Example with two items
+function atualizarDadosGrafico() {
+fetch('http://localhost:4000/usuariosStatus')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok ' + response.statusText);
+    }
+    return response.json();
+  })
+  .then(data => {
+    // Exibir os totais de usuários ativos e inativos
+    const usuariosAtivos = data.usuariosAtivos;
+    const usuariosInativos = data.usuariosInativos;
+    // Pie Chart Example with two items
 var ctx = document.getElementById("myPieChart");
 var myPieChart = new Chart(ctx, {
   type: 'doughnut',
   data: {
     labels: ["Ativos", "Inativos"], // Two items
     datasets: [{
-      data: [3000, 500], // Adjusted data for two items
+      data: [ usuariosAtivos, usuariosInativos], // Adjusted data for two items
       backgroundColor: ['#4e73df', '#1cc88a'], // Colors for two items
       hoverBackgroundColor: ['#2e59d9', '#17a673'],
       hoverBorderColor: "rgba(234, 236, 244, 1)",
@@ -33,3 +45,20 @@ var myPieChart = new Chart(ctx, {
     cutoutPercentage: 80,
   },
 });
+
+
+    console.log(`Total de usuários ativos: ${usuariosAtivos}`);
+    console.log(`Total de usuários inativos: ${usuariosInativos}`);
+  })
+  .catch(error => {
+    console.error('Erro ao buscar o total de documentos:', error);
+  });
+}
+
+  document.addEventListener("DOMContentLoaded", function() {
+    atualizarDadosGrafico();
+  
+    // Atualizar os dados a cada 5 segundos (5000ms)
+    setInterval(atualizarDadosGrafico, 5000);
+  });
+
