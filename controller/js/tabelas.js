@@ -61,6 +61,7 @@
                     <td>${item.dataNasc}</td>
                     <td>${item.telefone}</td>
                     <td>${item.email}</td>
+                    <td>${item.status}</td>
                 `;
                 corpoTabela.appendChild(linha);
             });
@@ -97,6 +98,7 @@
                     <td>${item.numEstab}</td>
                     <td>${item.numContato}</td>
                     <td>${item.email}</td>
+                    <td>${item.status}</td>
                 `;
                 corpoTabela.appendChild(linha);
             });
@@ -222,15 +224,53 @@
         }
     }
 
-    document.getElementById("editButton").addEventListener("click", editarLinha);
-    document.getElementById("banButton").addEventListener("click", () => {
+    function banirLinha() {
         if (linhaSelecionada) {
-            linhaSelecionada.classList.add("banned");
-            exibirAlerta('Usuário/lojista banido com sucesso!', 'ban');
+            const celulas = linhaSelecionada.getElementsByTagName('td');
+            const id = celulas[0].innerText;
+            const ehTabelaUsuarios = document.getElementById("table1").style.display === "";
+            
+            const statusAtual = ehTabelaUsuarios ? celulas[6].innerText === 'true' : celulas[12].innerText === 'true';
+            const novoStatus = !statusAtual;
+    
+            const url = ehTabelaUsuarios
+                ? `http://localhost:4000/usuarios/${id}/banir`
+                : `http://localhost:4000/lojistas/${id}/banir`;
+    
+            fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ status: novoStatus })
+            })
+            .then(resposta => {
+                if (!resposta.ok) {
+                    return resposta.json().then(err => {
+                        throw new Error(err.message || 'Erro desconhecido ao atualizar o status');
+                    });
+                }
+    
+            
+                if (ehTabelaUsuarios) {
+                    celulas[6].innerText = novoStatus;
+                } else {
+                    celulas[12].innerText = novoStatus;
+                }
+                
+                exibirAlerta(novoStatus ? 'Status ativado com sucesso!' : 'Status banido com sucesso!', 'ban');
+            })
+            .catch(error => {
+                console.error('Erro ao atualizar o status:', error);
+                exibirAlerta('Erro ao atualizar o status: ' + error.message, 'ban');
+            });
         } else {
-            exibirAlerta('Selecione uma linha para banir.', 'ban');
+            exibirAlerta('Selecione uma linha para atualizar o status.', 'ban');
         }
-    });
+    }
+
+    document.getElementById("editButton").addEventListener("click", editarLinha);
+    document.getElementById("banButton").addEventListener("click", banirLinha);
     document.getElementById("deleteButton").addEventListener("click", deletarLinha);
     document.getElementById("tableSelect").addEventListener("change", trocarTabela);
 
@@ -243,5 +283,5 @@
         });
     }
 
-    trocarTabela(); // Carregar a tabela inicial ao iniciar o script
+    trocarTabela();
 })();
